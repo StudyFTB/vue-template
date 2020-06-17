@@ -1,17 +1,26 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-// import "@/router/navGuard";
-import store from "./store";
-import SvgIcon from "@/svg-icon";
+import Vue from 'vue'
+import App from './App.vue'
+// elementui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+// 路由
+import router from '@/router';
+import "@/router/navGuard";
+// vuex
+import store from '@/store';
+//自定义svg图标组件
+import SvgIcon from "@c/base-svg/index.js";
+//全局实例方法
+import global from "@/utils/global";
 
+//自定义指令
+import "@/utils/directives";
 
-Vue.use(SvgIcon);
-
+Vue.use(ElementUI).use(global).use(SvgIcon);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+	store,
+	router,
+	render: h => h(App),
+}).$mount('#app')

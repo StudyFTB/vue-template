@@ -1,0 +1,182 @@
+@import "./_style.scss";
+/*
+*elementui菜单样式
+ */
+.el-menu{
+    min-height: 100%;
+    @include prefix(transition,all 0.3s ease 0);
+    .el-menu--collapse { /*收缩后的高度 */
+        min-height: 100%;
+    }
+    &:not(.el-menu--collapse) { /*收缩前宽度 */
+        width: 200px;
+    }
+    & .el-submenu.is-active .el-submenu__title{ /*一级菜单选中时 */
+        color: #fff !important;
+        // background-color: rgba(245, 108, 108, 1) !important;
+        &>i{
+            color: #fff !important;
+        }
+    }
+    & .el-menu-item {  /*子菜单 */
+        min-width: 200px !important;
+        background-color: #1f2d3d !important;
+        &:hover{/*子菜单鼠标悬浮 */
+            min-width: 200px !important;
+            background-color: #001528 !important;
+        }
+        &.is-active{ /* 子菜单选中时 */
+            background-color: #001528 !important;
+            // color: #fff !important;
+            // background-color: rgba(245, 108, 108, 0.5) !important;
+        }
+    }
+}
+
+
+/**
+*elementui表格样式
+ */
+.el-table__body tr.current-row>td{
+    /* background-color: #e8f4ff !important; */
+    background-color: #cce7ff !important;
+    /* color: #FFF; */
+}
+.el-table{
+    .cell{
+        cursor: default;
+    }
+}
+.el-table__body-wrapper{ //表格主体部分
+    height: calc(100% - 41px);
+    overflow-y: auto !important;
+}
+.el-table--border, .el-table--group {
+    border: 1px solid #dfe6ec !important;
+}
+.el-table--border th, .el-table--border td {
+    border-right: 1px solid #dfe6ec !important;
+    padding: 3px 0 !important;
+}
+
+.el-table td, .el-table th.is-leaf {
+    border-bottom: 1px solid #dfe6ec !important;
+}
+
+//表格滚动条问题解决
+.el-table--border th.gutter:last-of-type {
+    display: block!important;
+    width: 17px!important;
+}
+
+/**
+*elementui弹出框样式
+ */
+.el-dialog {
+    max-height: calc(100% - 20px);
+    margin: 10px auto !important;
+    overflow: auto !important;
+    position: relative;
+    .el-dialog__header{
+        height:32px !important;
+        box-sizing: border-box;
+        padding:5px 10px !important;
+    }
+    .el-dialog__headerbtn{
+        top:10px !important;
+    }
+    .el-dialog__body{
+        // height: calc(100% - 70px);
+        box-sizing: border-box;
+        padding:5px 10px !important;
+    }
+    .el-dialog__footer{
+        box-sizing: border-box;
+        height: 38px !important;
+        padding:5px 10px !important;
+    }
+}
+//弹出框中有full-dialog就是撑满的弹出框
+body .full-dialog>.el-dialog{
+    height: calc(100% - 20px) !important; //上下外边距为10px
+    .el-dialog__body{
+        height: calc(100% - 34px); //弹出框中头部为34px
+    }
+}
+
+/* 
+**树状图加虚线
+*/
+.el-aside,li,.el-dialog__body{
+    .el-tree > .el-tree-node:after {
+        border-top: none;
+    }
+   .el-tree-node {
+        position: relative;
+        padding-left: 3px;
+    }
+   //节点有间隙，隐藏掉展开按钮就好了,如果觉得空隙没事可以删掉
+    .el-tree-node__expand-icon.is-leaf{
+        display: none;
+    }
+    .el-tree-node__children {
+        padding-left: 16px;
+        .el-tree-node__content{
+            padding-left: 0px !important;
+            background-color: #fff;
+            z-index: 999;
+        }
+    }
+
+    .el-tree-node__expand-icon{
+        padding: 0px !important;
+        font-size: 18px !important;
+    }
+
+    .el-tree-node :last-child:before {
+        height: 38px;
+    }
+
+    .el-tree > .el-tree-node:before {
+        border-left: none;
+    }
+
+    .el-tree > .el-tree-node:after {
+        border-top: none;
+    }
+
+    .el-tree-node:before {
+        content: "";
+        left: -7px;
+        position: absolute;
+        right: auto;
+        border-width: 1px;
+    }
+
+    .el-tree-node:after {
+        content: "";
+        left: -7px;
+        position: absolute;
+        right: auto;
+        border-width: 1px;
+    }
+
+    .el-tree-node:before {
+        border-left: 1px dashed #4386c6;
+        bottom: 0px;
+        height: 100%;
+        top: -26px;
+        width: 1px;
+    }
+
+    .el-tree-node:after {
+        border-top: 1px dashed #4386c6;
+        height: 20px;
+        top: 12px;
+        width: 8px;
+    }
+ }
+
+ .el-container{
+     z-index: 0 !important;
+ }

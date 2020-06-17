@@ -1,0 +1,90 @@
+/* 此css文件是本人多出用到样式集中 */
+// 变量集合
+$border-color:#DCDFE6;
+$info-color:#909399;
+$success-color:#67C23A;
+$primary-color:#409EFF;
+$danger-color:#F56C6C;
+$warning-color:#E6A23C;
+
+//混合器
+//兼容性的css
+@mixin prefix($name,$value) {
+    #{$name}:$value;
+    -webkit-#{$name}:$value;
+    -ms-#{$name}:$value;
+    -moz-#{$name}:$value;
+    -o-#{$name}:$value;
+}
+
+//弹性盒子
+@mixin flex-wrap(
+    $justify-content:flex-start, 
+    $align-items:center, 
+    $flex-direction:row,
+    $flex-wrap: nowrap
+    ) {
+        //display
+        display: flex;
+        display: -webkit-flex;
+        //justify-content
+        justify-content: $justify-content;
+        -webkit-justify-content: $justify-content;
+        -moz-justify-content: $justify-content;
+        //align-items
+        align-items: $align-items;
+        -webkit-align-items: $align-items;
+        -moz-align-items: $align-items;
+        //flex-direction
+        flex-direction: $flex-direction;
+        -webkit-flex-direction: $flex-direction;
+        -moz-flex-direction: $flex-direction;
+        //flex-wrap
+        flex-wrap: $flex-wrap;
+        -webkit-flex-wrap: $flex-wrap;
+        -moz-flex-wrap: $flex-wrap;
+    }
+
+// 快捷选择
+// 布局
+.treeAside{
+    width:200px !important;
+    height:100% !important;
+    &>.el-tree{
+        &>.el-tree-node{
+          /*设置横向滚动条*/
+          min-width: 100%;
+          display: inline-block;
+          padding-left: 0;
+        }
+      }
+}
+.mainBox{
+    padding:0 !important;
+    height:100% !important;
+}
+// 宽
+.w-15{ width: 15% !important; }
+.w-25{ width: 25% !important; }
+.w-30{ width: 30% !important; }
+.w-50{ width: 15% !important; }
+.w-75{ width: 15% !important; }
+.w-100{ width: 100% !important; }
+// 高
+.h-15{ height: 15% !important; }
+.h-25{ height: 25% !important; }
+.h-30{ height: 30% !important; }
+.h-50{ height: 15% !important; }
+.h-75{ height: 15% !important; }
+.h-100{ height: 100% !important; }
+// 字体
+.text-small{ font-size: .8rem !important; }
+.text-big{ font-size: 1.2rem !important; }
+.text-blod{ font-weight: bold !important; }
+.text-bloder{ font-weight: bolder !important; }
+// 边框
+.border{ border: 1px solid $border-color; }
+.border-top{ border-top: 1px solid $border-color; }
+.border-bottom{ border-bottom: 1px solid $border-color; }
+.border-left{ border-left: 1px solid $border-color; }
+.border-right{ border-right: 1px solid $border-color; }
