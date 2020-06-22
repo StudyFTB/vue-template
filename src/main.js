@@ -9,7 +9,7 @@ import "@/router/navGuard";
 // vuex
 import store from '@/store';
 //自定义svg图标组件
-import SvgIcon from "@c/base-svg/index.js";
+import SvgIcon from "@/svg-icon/SvgIcon";
 //全局实例方法
 import global from "@/utils/global";
 
