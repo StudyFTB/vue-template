@@ -25,7 +25,8 @@
                 :align='column.align || tableConfig.align'
                 :width="column.width"
                 :prop='column.prop'
-                :fixed="column.fixed">
+                :fixed="column.fixed"
+                :sortable="column.sortable">
                 <template slot-scope="scope">
                     <slot :name="column.soltName" :data="scope"></slot>
                 </template>
@@ -38,7 +39,8 @@
                 :align='column.align || tableConfig.align'
                 :width="column.width"
                 :prop='column.prop'
-                :fixed="column.fixed">
+                :fixed="column.fixed"
+                :sortable="column.sortable">
             </el-table-column>
         </template>
     </el-table>
@@ -86,11 +88,14 @@ export default {
         },
         // pageSize 每页条数改变
         onSizeChange(pageSize){
-            this.$emit("size-change",pageSize);
+            this.tableConfig.pagination.pageSize = pageSize;
+            this.tableConfig.pagination.currentPage = 1;
+            this.$emit("size-change");
         },
         // currentPage 当前页码改变
         onCurrentChange(currentPage){
-            this.$emit("current-change",currentPage);
+            this.tableConfig.pagination.currentPage = currentPage;
+            this.$emit("current-change");
         }
     }
 }
@@ -114,7 +119,7 @@ export default {
             background-color: #cce7ff !important;
         }
         .el-table__body-wrapper{ //表格主体部分
-            height: calc(100% - 30px);
+            height: calc(100% - 36px);
             overflow-y: auto !important;
         }
         .el-table--border, .el-table--group {
@@ -128,11 +133,20 @@ export default {
         .el-table td, .el-table th.is-leaf {
             border-bottom: 1px solid #dfe6ec !important;
         }
-
         //表格滚动条问题解决
         .el-table--border th.gutter:last-of-type {
             display: block!important;
             width: 17px!important;
+        }
+        // 减小排序图标宽度
+        .caret-wrapper{
+            height: 21px;
+            .sort-caret.ascending{
+                top: -1px;
+            }
+            .sort-caret.descending{
+                bottom: -1px;
+            }
         }
     }
 }
@@ -175,6 +189,7 @@ tableConfig:{
             soltName:"menuSet", //是否使用插槽，有值就是有插槽，值为插槽名
             align:"center", //对齐方式,权重大于全局的align
             fixed:"", //固定位置，值为true, left, right
+            sortable:fasle // 排序
         },
         ...
     ]
