@@ -106,6 +106,35 @@ export default {
         height: 100% !important;
         overflow: auto !important;
     }
+    /deep/ .el-table{
+        .cell{
+            cursor: default;
+        }
+        .el-table__body tr.current-row>td{
+            background-color: #cce7ff !important;
+        }
+        .el-table__body-wrapper{ //表格主体部分
+            height: calc(100% - 30px);
+            overflow-y: auto !important;
+        }
+        .el-table--border, .el-table--group {
+            border: 1px solid #dfe6ec !important;
+        }
+        .el-table--border th, .el-table--border td {
+            border-right: 1px solid #dfe6ec !important;
+            padding: 3px 0 !important;
+        }
+
+        .el-table td, .el-table th.is-leaf {
+            border-bottom: 1px solid #dfe6ec !important;
+        }
+
+        //表格滚动条问题解决
+        .el-table--border th.gutter:last-of-type {
+            display: block!important;
+            width: 17px!important;
+        }
+    }
 }
 </style>
 
@@ -120,7 +149,7 @@ export default {
     </base-table>
 参数说明：
 tableConfig:{
-    rowHighlight: true,//是否高亮选择行
+    rowHighlight: true,//是否高亮选择行，不写则默认与selection相反
     selection:true, //多选框，true为显示多选框
     rowKey:"", //在使用 reserve-selection 功能与显示树形数据时，该属性是必填的。
     reserveSelection: true, //类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据
