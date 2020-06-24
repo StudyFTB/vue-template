@@ -9,7 +9,7 @@
         :indent="16"
         @row-click="onRowClick"
         :class="tableConfig.pagination.show ? 'tab' : 'tab-noPage'"
-        :highlight-current-row="!tableConfig.selection" >
+        :highlight-current-row="tableConfig.rowHighlight" >
         <el-table-column 
             v-if="tableConfig.selection" 
             type="selection" 
@@ -74,6 +74,10 @@ export default {
             //没写show
             if(!this.tableConfig.pagination.show) this.tableConfig.pagination.show = false;
         }
+        // 默认高亮行
+        if(this.tableConfig.rowHighlight == undefined){
+            this.tableConfig.rowHighlight = !this.tableConfig.selection;
+        }
     },
     methods:{
         // 点击表格行触发
@@ -116,6 +120,7 @@ export default {
     </base-table>
 参数说明：
 tableConfig:{
+    rowHighlight: true,//是否高亮选择行
     selection:true, //多选框，true为显示多选框
     rowKey:"", //在使用 reserve-selection 功能与显示树形数据时，该属性是必填的。
     reserveSelection: true, //类型为 Boolean，为 true 则会在数据更新之后保留之前选中的数据

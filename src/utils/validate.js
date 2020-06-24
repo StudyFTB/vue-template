@@ -26,7 +26,7 @@ export const fixPhone = (str) => {
 *特殊字符
  */
 export const special = (str) => { //true是还有特殊字符
-    const patrn = /[`~!@#$%^&*()\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘’，。、 ]/im;
+    const patrn = /[`~!@#$%^&*()+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——+={}|《》？：“”【】、；‘’，。、 ]/im;
     return patrn.test(str);
 }
 
@@ -43,5 +43,13 @@ export const onlyLetterNum = (str) => {
  */
 export const ipAddr = (str) => {
     const patrn = /((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)/;
+    return patrn.test(str);
+}
+
+/**
+ * 是否含有汉字
+ */
+export const Chinese = (str) => {
+    var patrn = new RegExp("[\\u4E00-\\u9FFF]+","g");
     return patrn.test(str);
 }
