@@ -9,14 +9,14 @@ import "@/router/navGuard";
 // vuex
 import store from '@/store';
 //自定义svg图标组件
-import SvgIcon from "@/svg-icon/SvgIcon";
+import "@/svg-icon";
 //全局实例方法
 import global from "@/utils/global";
 
 //自定义指令
 import "@/utils/directives";
 
-Vue.use(ElementUI).use(global).use(SvgIcon);
+Vue.use(ElementUI).use(global);
 Vue.config.productionTip = false;
 
 new Vue({
