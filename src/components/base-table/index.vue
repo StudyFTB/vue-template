@@ -125,7 +125,7 @@ export default {
         .el-table--border, .el-table--group {
             border: 1px solid #dfe6ec !important;
         }
-        .el-table--border th, .el-table--border td {
+        th,td {
             border-right: 1px solid #dfe6ec !important;
             padding: 3px 0 !important;
         }
@@ -154,7 +154,7 @@ export default {
 
 <!--
 表格组件
-例：<base-table :tableConfig="tableConfig" style="height:calc(100% - 36px)">
+例：<base-table :tableConfig="tableConfig" style="height:calc(100% - 32px)">
         <template #details="{ data }">
             <el-button type="danger" size="mini" @click="onDetails(data)">
                 查看详情
