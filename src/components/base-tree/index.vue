@@ -59,13 +59,11 @@ export default {
 
 <style lang="scss" scoped>
 #base-tree{
+    // 高亮
+    // /deep/ .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+    //     background-color: #cce7ff !important;
+    // }
     /deep/ .el-tree{
-        &>.el-tree-node:after {
-            border-top: none !important;
-        }
-        &>.el-tree-node:before{
-            border-left: none !important;
-        }
         .el-tree-node {
             position: relative;
             padding-left: 3px;
@@ -78,11 +76,10 @@ export default {
             padding-left: 16px;
             .el-tree-node__content{
                 padding-left: 0px !important;
-                background-color: #fff;
+                // background-color: #fff;
                 z-index: 999;
             }
         }
-
         .el-tree-node__expand-icon{
             padding: 0px !important;
             font-size: 18px !important;
@@ -92,11 +89,11 @@ export default {
             height: 38px;
         }
 
-        .el-tree > .el-tree-node:before {
+        &> .el-tree-node:before {
             border-left: none;
         }
 
-        .el-tree > .el-tree-node:after {
+        &> .el-tree-node:after {
             border-top: none;
         }
 

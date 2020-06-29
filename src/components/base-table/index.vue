@@ -133,11 +133,6 @@ export default {
         .el-table td, .el-table th.is-leaf {
             border-bottom: 1px solid #dfe6ec !important;
         }
-        //表格滚动条问题解决
-        .el-table--border th.gutter:last-of-type {
-            display: block!important;
-            width: 17px!important;
-        }
         // 减小排序图标宽度
         .caret-wrapper{
             height: 21px;
@@ -148,6 +143,11 @@ export default {
                 bottom: -1px;
             }
         }
+    }
+    //表格滚动条问题解决
+    /deep/ .el-table--border th.gutter:last-of-type {
+        display: block !important;
+        width: 17px !important;
     }
 }
 </style>
