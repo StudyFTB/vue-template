@@ -1,6 +1,7 @@
 <template>
 <div id="base-table">
-    <el-table 
+    <el-table
+        ref="tab"
         :data="tableConfig.tableData" 
         border 
         size='mini' 
@@ -8,6 +9,7 @@
         default-expand-all
         :indent="16"
         @row-click="onRowClick"
+        @selection-change="onSelectionChange"
         :class="tableConfig.pagination.show ? 'tab' : 'tab-noPage'"
         :highlight-current-row="tableConfig.rowHighlight" >
         <el-table-column 
@@ -84,7 +86,13 @@ export default {
     methods:{
         // 点击表格行触发
         onRowClick(row, column, event){
+            this.$refs.tab.clearSelection();
+            this.$refs.tab.toggleRowSelection(row);
             this.$emit("row-click",row);
+        },
+        //点击复选框触发
+        onSelectionChange(val) {
+            this.$emit("selection-change",val);
         },
         // pageSize 每页条数改变
         onSizeChange(pageSize){

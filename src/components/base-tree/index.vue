@@ -58,6 +58,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$children-left: 32px;
+$vertical-line: -23px; // 竖线位置
+$horizontal-line: 20px; // 横线长度
 #base-tree{
     // 高亮
     // /deep/ .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
@@ -73,7 +76,7 @@ export default {
             display: none;
         }
         .el-tree-node__children {
-            padding-left: 16px;
+            padding-left: $children-left;
             .el-tree-node__content{
                 padding-left: 0px !important;
                 // background-color: #fff;
@@ -90,16 +93,16 @@ export default {
         }
 
         &> .el-tree-node:before {
-            border-left: none;
+            border-left: none !important;
         }
 
         &> .el-tree-node:after {
-            border-top: none;
+            border-top: none !important;
         }
 
         .el-tree-node:before {
             content: "";
-            left: -7px;
+            left: $vertical-line;
             position: absolute;
             right: auto;
             border-width: 1px;
@@ -107,7 +110,7 @@ export default {
 
         .el-tree-node:after {
             content: "";
-            left: -7px;
+            left: $vertical-line;
             position: absolute;
             right: auto;
             border-width: 1px;
@@ -125,7 +128,7 @@ export default {
             border-top: 1px dashed #4386c6;
             height: 20px;
             top: 12px;
-            width: 8px;
+            width: $horizontal-line;
         }
     }
 }

@@ -94,6 +94,7 @@ export default {
         height: calc(100% - 20px) !important; //上下外边距为10px
         .el-dialog__body{
             height: calc(100% - 70px); //弹出框中头部为34px
+            overflow: auto;
         }
     }
 }
@@ -102,6 +103,7 @@ export default {
         height: calc(100% - 20px) !important; //上下外边距为10px
         .el-dialog__body{
             height: calc(100% - 32px); //弹出框中头部为34px
+            overflow: auto;
         }
     }
 }
