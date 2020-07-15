@@ -30,7 +30,7 @@ VueRouter.prototype.push = function push (location) {
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: process.env.NODE_ENV === 'production' ? '/app/' : '',
   routes
 });
 
